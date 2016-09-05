@@ -1,0 +1,18 @@
+<link rel="import" href="/bower_components/iron-location/iron-location.html">
+<dom-module id="hash-display">
+    <template>
+        <iron-location hash="{{hash}}"></iron-location>
+        <template is="dom-repeat" items="{{_hashItems(hash)}}">
+            <p>{{item}}</p>
+        </template>
+        <h1>Location display: {{hash}}</h1>
+    </template>
+    <script>
+        Polymer({
+            is: 'hash-display',
+            _hashItems: function(hash) {
+                return hash && hash.split('-')
+            }
+        })
+    </script>
+</dom-module>
